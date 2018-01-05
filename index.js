@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 const Twitter = require('twitter');
 
 const twitterKeys = require('./twitter-keys');
@@ -16,6 +17,9 @@ const app = express();
 // Middleware that logs every request made to web server
 app.use(morgan('dev'));
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 app.get('/getTweets/:screen_name', (request, response) => {
   client.get('statuses/user_timeline', {
   screen_name: request.params.screen_name,
@@ -24,6 +28,14 @@ app.get('/getTweets/:screen_name', (request, response) => {
 })
   .then(tweets => response.json(tweets))
 .catch(error => console.log(error));
+});
+
+/*
+ The "catchall" handler: for any request that doesn't
+ match one above, send back React's index.html file.
+  */
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
 
