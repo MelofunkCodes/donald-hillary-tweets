@@ -8,7 +8,9 @@ A Node server was set-up with
 express.js to proxy the requests made to the Twitter API. The npm package `twitter` was used
 to pass the oauth 1.0 params to the Twitter API and retrieve the tweets. 
 
-### To run locally:
+
+----
+## To run locally:
 
 In the main directory:
 
@@ -23,3 +25,8 @@ Then just copy below in your terminal to run both the react-app (`npm run start:
  ```bash
 npm-run-all --parallel heroku-start start:client
 ```
+
+----
+## Acknowledgement
+👏👏👏Credits to [Animatron](https://www.animatron.com/) for the gifs of Donald and Hillary. 
+
