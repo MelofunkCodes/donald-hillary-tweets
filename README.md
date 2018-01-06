@@ -18,7 +18,7 @@ git clone git@github.com:MelofunkCodes/donald-hillary-tweets.git
 npm install
 ```
 
-Then just copy below in your terminal to run both run both the react-app (`npm run start:client`)
+Then just copy below in your terminal to run both the react-app (`npm run start:client`)
  and also the backend server (`npm run heroku-start`).
  ```bash
 npm-run-all --parallel heroku-start start:client
