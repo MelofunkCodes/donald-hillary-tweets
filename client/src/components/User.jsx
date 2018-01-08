@@ -40,11 +40,11 @@ class User extends React.Component {
         <div className="tweet-footer">
           <div className="tweet-footer-counts">
             <i className="fa fa-heart-o" aria-hidden="true" />
-            &nbsp;&nbsp;{tweet.favorite_count.toLocaleString()}
+            {tweet.favorite_count.toLocaleString()}
           </div>
           <div>
             <i className="fa fa-retweet" aria-hidden="true" />
-            &nbsp;&nbsp;{tweet.retweet_count.toLocaleString()}
+            {tweet.retweet_count.toLocaleString()}
           </div>
         </div>
       </div>
@@ -65,7 +65,13 @@ class User extends React.Component {
             src={soapboxSrc[screenName]}
             alt={`${screenName} on a soapbox`}
           />
-          <h2>@{screenName}</h2>
+          <a
+            href={`https://twitter.com/${screenName}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @{screenName}
+          </a>
         </div>
         <div className="tweets">
           {tweets.map(this.renderTweet)}
