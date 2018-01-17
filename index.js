@@ -24,7 +24,7 @@ app.get('/getTweets/:screen_name', (request, response) => {
   tweet_mode: 'extended',
   // count: 200,
 })
-  .then(tweets => response.json(tweets))
+.then(tweets => response.json(tweets))
 .catch(error => console.log(error));
 });
 
