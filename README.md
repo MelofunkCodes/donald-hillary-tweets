@@ -1,8 +1,10 @@
 # Donald-Hillary Tweets
 
-A simple UI using React to show the latest tweets from Donald Trump or Hillary Clinton.
+## Demo
+https://donald-hillary-tweets.herokuapp.com
 
-Demo can be viewed here: https://donald-hillary-tweets.herokuapp.com
+## Intro
+A simple UI using React to show the latest tweets from Donald Trump or Hillary Clinton.
 
 A Node server was set-up with 
 express.js to proxy the requests made to the Twitter API. The npm package `twitter` was used
