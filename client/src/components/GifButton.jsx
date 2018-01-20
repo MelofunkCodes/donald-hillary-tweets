@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { browserHistory as history } from 'react-router';
 import PropTypes from 'prop-types';
 
@@ -9,19 +9,19 @@ const propTypes = {
 };
 
 const GifButton = (
-  props,
+  { username },
   { store },
 ) => (
   <img
     className="button-choice"
-    src={gifSourcesByTwitterUsername[props.username].gifButton}
-    alt={`${props.username} gif`}
+    src={gifSourcesByTwitterUsername[username].gifButton}
+    alt={`${username} gif`}
     onClick={() => {
-      history.push(`/tweets/${props.username}`);
+      history.push(`/tweets/${username}`);
 
       store.dispatch({
         type: 'SELECT_USER',
-        username: props.username,
+        username,
       });
     }}
   />
