@@ -1,10 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-const soapboxSrc = {
-  realDonaldTrump: 'https://user-images.githubusercontent.com/22921878/34544887-fe6c2d4a-f0b6-11e7-832e-9cab74a354b0.gif',
-  HillaryClinton: 'https://user-images.githubusercontent.com/22921878/34544890-088daa56-f0b7-11e7-885d-cc8978788f5e.gif',
-};
+import gifSourcesByTwitterUsername from '../gifSources';
 
 class User extends React.Component {
   constructor() {
@@ -62,7 +59,7 @@ class User extends React.Component {
       <div className="tweet-page">
         <div className="soapbox-image">
           <img
-            src={soapboxSrc[screenName]}
+            src={gifSourcesByTwitterUsername[screenName].soapboxGif}
             alt={`${screenName} on a soapbox`}
           />
           <a
