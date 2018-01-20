@@ -1,7 +1,7 @@
 const currentUser = (state = null, action) => {
   switch (action.type) {
     case 'SELECT_USER':
-      return action.user;
+      return action.username;
     default:
       return state;
   }

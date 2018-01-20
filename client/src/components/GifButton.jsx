@@ -33,7 +33,7 @@ class GifButton extends Component {
 
           store.dispatch({
             type: 'SELECT_USER',
-            user: username,
+            username,
           });
         }}
       />
