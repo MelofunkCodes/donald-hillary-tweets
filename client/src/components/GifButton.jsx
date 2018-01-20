@@ -3,6 +3,7 @@ import { browserHistory as history } from 'react-router';
 import PropTypes from 'prop-types';
 
 import gifSourcesByTwitterUsername from '../gifSources';
+import { selectUser } from '../actions/index';
 
 const propTypes = {
   username: PropTypes.string.isRequired,
@@ -19,10 +20,7 @@ const GifButton = (
     onClick={() => {
       history.push(`/tweets/${username}`);
 
-      store.dispatch({
-        type: 'SELECT_USER',
-        username,
-      });
+      store.dispatch(selectUser(username));
     }}
   />
 );
