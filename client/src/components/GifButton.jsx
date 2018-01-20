@@ -8,38 +8,24 @@ const propTypes = {
   username: PropTypes.string.isRequired,
 };
 
-class GifButton extends Component {
-  componentDidMount() {
-    const { store } = this.context;
+const GifButton = (
+  props,
+  { store },
+) => (
+  <img
+    className="button-choice"
+    src={gifSourcesByTwitterUsername[props.username].gifButton}
+    alt={`${props.username} gif`}
+    onClick={() => {
+      history.push(`/tweets/${props.username}`);
 
-    this.unsubscribe = store.subscribe(() => this.forceUpdate());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  render() {
-    const { store } = this.context;
-    const { username } = this.props;
-
-    return (
-      <img
-        className="button-choice"
-        src={gifSourcesByTwitterUsername[username].gifButton}
-        alt={`${username} gif`}
-        onClick={() => {
-          history.push(`/tweets/${username}`);
-
-          store.dispatch({
-            type: 'SELECT_USER',
-            username,
-          });
-        }}
-      />
-    );
-  }
-}
+      store.dispatch({
+        type: 'SELECT_USER',
+        username: props.username,
+      });
+    }}
+  />
+);
 
 GifButton.propTypes = propTypes;
 GifButton.contextTypes = {
