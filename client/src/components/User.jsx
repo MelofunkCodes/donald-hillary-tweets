@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-import gifSourcesByTwitterUsername from '../gifSources';
+import Soapbox from './Soapbox';
 
 class User extends React.Component {
   constructor() {
@@ -55,21 +55,11 @@ class User extends React.Component {
     const { tweets } = this.state;
     const screenName = this.props.params.username;
 
+    console.log(`screenName: ${screenName}`);
+
     return (
       <div className="tweet-page">
-        <div className="soapbox-image">
-          <img
-            src={gifSourcesByTwitterUsername[screenName].soapboxGif}
-            alt={`${screenName} on a soapbox`}
-          />
-          <a
-            href={`https://twitter.com/${screenName}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @{screenName}
-          </a>
-        </div>
+        <Soapbox screenName={screenName} />
         <div className="tweets">
           {tweets.map(this.renderTweet)}
         </div>
