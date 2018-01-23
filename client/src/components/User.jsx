@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import Soapbox from './Soapbox';
 import Tweet from './Tweet';
+import Loading from './Loading';
 import { fetchTweets } from '../actions/index';
 
 const mapStateToProps = state => ({
-  state, //state.currentUser is not working...
   tweets: state.tweets,
 });
 
@@ -16,22 +16,15 @@ const mapDispatchToProps = {
 
 class User extends Component {
   componentDidMount() {
-    console.log(`state: ${JSON.stringify(this.props.state, false, 2)}`);
-
-    console.log(`this.props.username: ${this.props.params.username}`);
-    this.props.fetchTweets(this.props.params.username);
+    const { username } = this.props.params;
+    this.props.fetchTweets(username);
   }
 
   render() {
     const { tweets } = this.props;
     const screenName = this.props.params.username;
-    console.log(`this.props: ${JSON.stringify(this.props, false, 2)}`);
-    
-    if (tweets.length === 0) {
-      return (<div className="tweet-page">LOADING...</div>);
-    }
 
-    return (
+    return (tweets.length !== 0) ? (
       <div className="tweet-page">
         <Soapbox screenName={screenName} />
         <div className="tweets">
@@ -44,7 +37,7 @@ class User extends Component {
           )}
         </div>
       </div>
-    );
+    ) : <Loading />;
   }
 }
 

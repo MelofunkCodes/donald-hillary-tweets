@@ -7,6 +7,7 @@ const gifSourcesByTwitterUsername = {
     gifButton: 'https://user-images.githubusercontent.com/22921878/34543432-c791607c-f0ae-11e7-915c-231df1c8961d.gif',
     soapboxGif: 'https://user-images.githubusercontent.com/22921878/34544890-088daa56-f0b7-11e7-885d-cc8978788f5e.gif',
   },
+  loading: 'https://user-images.githubusercontent.com/22921878/35304844-07c6d2e2-0065-11e8-90cd-1a878339c6c1.gif',
 };
 
 export default gifSourcesByTwitterUsername;
