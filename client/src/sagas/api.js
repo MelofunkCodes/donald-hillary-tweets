@@ -1,12 +1,7 @@
 const API_ROOT = process.env.API_ROOT || 'http://localhost:5000';
-const tweetsUrl = (username) => `${API_ROOT}/getTweets/${encodeURI(username)}`;
+const tweetsUrl = username => `${API_ROOT}/getTweets/${encodeURI(username)}`;
 
 const fetchTweets = async (username) => {
-  console.log(`
-inside client/src/reducers/api.js:
-
-tweetsUrl: ${tweetsUrl(username)}`);
-
   const response = await fetch(tweetsUrl(username));
   return response.json();
 };
