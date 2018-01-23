@@ -1,33 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Soapbox from './Soapbox';
 import Tweet from './Tweet';
+import { fetchTweets } from '../actions/index';
 
-class User extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
+const mapStateToProps = state => ({
+  state, //state.currentUser is not working...
+  tweets: state.tweets,
+});
 
-    this.fetchTweets = this.fetchTweets.bind(this);
-  }
+const mapDispatchToProps = {
+  fetchTweets,
+};
 
+class User extends Component {
   componentDidMount() {
-    this.fetchTweets();
-  }
+    console.log(`state: ${JSON.stringify(this.props.state, false, 2)}`);
 
-  fetchTweets() {
-    fetch(`/getTweets/${this.props.params.username}`)
-      .then(response => response.json())
-      .then(tweets => this.setState({ tweets }));
+    console.log(`this.props.username: ${this.props.params.username}`);
+    this.props.fetchTweets(this.props.params.username);
   }
 
   render() {
-    if (!this.state.tweets) {
+    const { tweets } = this.props.tweets;
+    const screenName = this.props.params.username;
+    console.log(`this.props: ${JSON.stringify(this.props, false, 2)}`);
+    
+    if (tweets.length === 0) {
       return (<div className="tweet-page">LOADING...</div>);
     }
-
-    const { tweets } = this.state;
-    const screenName = this.props.params.username;
 
     return (
       <div className="tweet-page">
@@ -46,4 +48,4 @@ class User extends React.Component {
   }
 }
 
-export default User;
+export default connect(mapStateToProps, mapDispatchToProps)(User);

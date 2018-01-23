@@ -3,9 +3,9 @@ import { combineReducers } from 'redux';
 import currentUser from './currentUser';
 import tweets from './tweets';
 
-const tweetApp = combineReducers({
+const tweetReducers = combineReducers({
   currentUser,
   tweets,
 });
 
-export default tweetApp;
+export default tweetReducers;
