@@ -1,19 +1,9 @@
 import { FETCH_TWEETS_SUCCESS } from '../actions/index';
 
-const initialState = {
-  tweets: [],
-  loading: false,
-};
-
-const tweets = (state = initialState, action) => {
+const tweets = (state = [], action) => {
   switch (action.type) {
     case FETCH_TWEETS_SUCCESS:
-      return {
-        ...state,
-        tweets: action.tweets,
-        username: action.username,
-        loading: false,
-      };
+      return action.tweets;
     default:
       return state;
   }

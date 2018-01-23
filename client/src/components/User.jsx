@@ -23,7 +23,7 @@ class User extends Component {
   }
 
   render() {
-    const { tweets } = this.props.tweets;
+    const { tweets } = this.props;
     const screenName = this.props.params.username;
     console.log(`this.props: ${JSON.stringify(this.props, false, 2)}`);
     

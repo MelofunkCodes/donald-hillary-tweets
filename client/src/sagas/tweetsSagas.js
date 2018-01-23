@@ -12,7 +12,7 @@ function* fetchTweetsAsync(action) {
     const tweets = yield call(fetchTweets, action.username);
     console.log(`tweets fetched from api in worker saga: ${JSON.stringify(tweets, false, 2)}`);
 
-    yield put(fetchTweetsSuccess(action.username, tweets));
+    yield put(fetchTweetsSuccess(tweets));
     console.log('Success!!');
   } catch (error) {
     console.log('Failed to fetch tweets!');
