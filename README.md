@@ -4,12 +4,16 @@
 https://donald-hillary-tweets.herokuapp.com
 
 ## Intro
-A simple UI using React to show the latest tweets from Donald Trump or Hillary Clinton.
+A simple UI using React-Redux to show the latest tweets from Donald Trump or Hillary Clinton.
 
 A Node server was set-up with 
 express.js to proxy the requests made to the Twitter API. The npm package `twitter` was used
 to pass the oauth 1.0 params to the Twitter API and retrieve the tweets. 
 
+React-Redux was used to manage state, and Redux-Saga was used to handle the asynchronous call of 
+fetching the tweets from the express server. 
+
+<br> 
 
 ----
 ## To run locally:
@@ -27,6 +31,7 @@ Then just copy below in your terminal to run both the react-app (`npm run start:
  ```bash
 npm-run-all --parallel heroku-start start:client
 ```
+<br>
 
 ----
 ## Acknowledgement
