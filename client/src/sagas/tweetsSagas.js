@@ -5,7 +5,7 @@ import { FETCH_TWEETS, fetchTweetsSuccess } from '../actions/index';
 
 
 // worker Saga
-function* fetchTweetsAsync(action) {
+const fetchTweetsAsync = function* (action) {
   try {
     const tweets = yield call(fetchTweets, action.username);
     yield put(fetchTweetsSuccess(tweets));
@@ -13,9 +13,11 @@ function* fetchTweetsAsync(action) {
     console.log('Failed to fetch tweets!');
     console.log(error);
   }
-}
+};
 
 // watcher Saga
-export default function* watchFetchTweetsAsync() {
+const watchFetchTweetsAsync = function* () {
   yield takeEvery(FETCH_TWEETS, fetchTweetsAsync);
-}
+};
+
+export default watchFetchTweetsAsync;
